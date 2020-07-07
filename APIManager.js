@@ -10,8 +10,9 @@ class APIManager {
             url: 'https://randomuser.me/api/?results=7',
             dataType: 'json',
             success: response => {
-                this.data.user = response.results.pop();
-                this.data.friends = response.results;
+                const user = response.results.pop();
+                this.data.user =  {name: user.name, location: user.location, picture: user.picture};
+                this.data.friends = response.results.map(friend => ({name: friend.name}));
             }
         });
         $.ajax({

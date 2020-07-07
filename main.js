@@ -1,8 +1,6 @@
 const apiManager = new APIManager();
 const renderer = new Renderer();
 
-console.log(JSON.parse(localStorage.users));
-
 $("#fetch-data").on("click", () => {
     apiManager.fetchData();
 });
